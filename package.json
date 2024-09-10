@@ -1,0 +1,19 @@
+{
+  "name": "practicing_sessions",
+  "version": "1.0.0",
+  "description": "A simple project in which I would practice the concept of sessions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Iftikar Jahan",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mongodb": "^6.8.1",
+    "nodemon": "^3.1.4"
+  }
+}

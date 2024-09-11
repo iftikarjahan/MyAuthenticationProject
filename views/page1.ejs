@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Authentication Project</title>
-    <link rel="stylesheet" href="/css/page1.css">
+    <link rel="stylesheet" href="/css/page1.css" />
   </head>
   <body>
     <div class="container">
       <h1>Welcome to my Authentication Project</h1>
+      <% if(isAuthenticated){ %>
+      <h5>
+        User: <%= userName %> with email-Id: <%= userEmail %> is logged In
+      </h5>
+      <form action="/logout" method="POST">
+        <button class="button" type="submit">Logout User</button>
+      </form>
+      <% } %>
       <div class="button-container">
         <button class="button">
           <a href="/signin">Sign In</a>

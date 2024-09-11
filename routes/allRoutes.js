@@ -3,7 +3,6 @@ const router=express.Router();
 const allControllers=require("../controllers/allControllers");
 const authControllers=require("../controllers/auth");
 
-router.get("/",allControllers.page1Controller);
 
 router.get("/signin",authControllers.getSignInController);
 
@@ -16,5 +15,7 @@ router.post("/submit-signin",authControllers.postSignInController);
 router.get("/after-login-page",allControllers.getAfterLoginController);
 
 router.post("/logout",authControllers.postLogoutController);
+
+router.get("/",allControllers.page1Controller);
 
 module.exports=router;

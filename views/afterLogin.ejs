@@ -8,11 +8,16 @@
   </head>
   <body>
     <div class="container">
-      <h1><%= userName %> successfully Logged In with email-Id: <%= userEmail %></h1>
+      <h1>
+        <%= userName %> successfully Logged In with email-Id: <%= userEmail %>
+      </h1>
       <p>Welcome to the dashboard!</p>
       <form action="/logout" method="POST">
         <button class="button" type="submit">Logout</button>
       </form>
+      <% if(isAuthenticated){ %>
+      <button class="button"><a href="/">Go to homepage</a></button>
+      <% } %>
     </div>
   </body>
 </html>

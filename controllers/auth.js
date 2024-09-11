@@ -85,3 +85,15 @@ exports.postLoginController=(req,res,next)=>{
     console.log(err);
    })
 }
+
+exports.postLogoutController=(req,res,next)=>{
+    req.session.destroy(err=>{
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.clearCookie('connect.sid');  //clearing the cookie explicitly
+            res.redirect("/");
+        }
+    })
+}

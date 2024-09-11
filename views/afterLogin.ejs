@@ -4,12 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/afterLogin.css">
+    <link rel="stylesheet" href="/css/afterLogin.css" />
   </head>
   <body>
     <div class="container">
       <h1>User Successfully Logged In</h1>
       <p>Welcome to the dashboard!</p>
+      <form action="/logout" method="POST">
+        <button class="button" type="submit">Logout</button>
+      </form>
     </div>
   </body>
 </html>

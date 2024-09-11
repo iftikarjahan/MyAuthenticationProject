@@ -15,6 +15,6 @@ router.post("/submit-signin",authControllers.postSignInController);
 
 router.get("/after-login-page",allControllers.getAfterLoginController);
 
-
+router.post("/logout",authControllers.postLogoutController);
 
 module.exports=router;

@@ -3,5 +3,14 @@ exports.page1Controller=(req,res,next)=>{
 }
 
 exports.getAfterLoginController=(req,res,next)=>{
-    res.render("afterLogin");
+    if(req.session.isLoggedIn){
+        res.render("afterLogin",{
+            isAutheticated: req.session.isLoggedIn,
+            userName: req.session.user.name,
+            userEmail: req.session.user.email
+        });
+    }
+    else{
+        res.render("login");
+    }
 }

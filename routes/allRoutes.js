@@ -9,4 +9,6 @@ router.get("/signin",authControllers.getSignInController);
 
 router.get("/login",authControllers.getLoginController);
 
+router.post("/submit-signin",authControllers.postSignInController);
+
 module.exports=router;

@@ -9,7 +9,7 @@ class User{
     
     save(){
         const db=getDb();
-        db.collection("users").insertOne(this);
+        return db.collection("users").insertOne(this);
     }
 
 }

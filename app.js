@@ -8,6 +8,7 @@ const User = require("./model/user");
 
 const port = 3330;
 
+app.use(express.urlencoded({ extended: true }));  // Parses application/x-www-form-urlencoded content
 // serving the static files
 app.use(express.static(path.join(__dirname, "public")));
 

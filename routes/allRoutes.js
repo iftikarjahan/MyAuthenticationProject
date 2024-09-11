@@ -9,6 +9,12 @@ router.get("/signin",authControllers.getSignInController);
 
 router.get("/login",authControllers.getLoginController);
 
+router.post("/submit-login",authControllers.postLoginController);
+
 router.post("/submit-signin",authControllers.postSignInController);
+
+router.get("/after-login-page",allControllers.getAfterLoginController);
+
+
 
 module.exports=router;

@@ -43,3 +43,45 @@ exports.postSignInController=(req,res,next)=>{
     })
     
 }
+
+exports.postLoginController=(req,res,next)=>{
+    const email=req.body.email;
+    const password=req.body.password;
+    // console.log(req.session);
+    
+    /*
+    ->If the email is already present in the users collection, only then login the user
+    ->if email not present, redirect to the signIn page
+    */ 
+   const db=getDb();
+   db.collection("users").findOne({email:email}).then(userDoc=>{
+    if(!userDoc){
+        return res.redirect("/signin");
+    }
+    else{
+        // if I get the user, the I first need to confirm the password
+        bcrypt.compare(password,userDoc.password).then(result=>{
+            if(result){//password matched->create a new session for the user
+                req.session.isLoggedIn=true;
+                req.session.user=userDoc;
+                //now save the session in db
+                req.session.save(err=>{
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        res.redirect("/after-login-page");
+                    }
+                })
+
+            }else{
+                return res.redirect("/login");
+            }
+        }).catch(err=>{
+            console.log(err);
+        })
+    }
+   }).catch(err=>{
+    console.log(err);
+   })
+}
